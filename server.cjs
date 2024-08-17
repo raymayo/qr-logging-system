@@ -1,21 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const Student = require('./src/models/Student.cjs'); // Adjust the file extension if needed
 
 const app = express();
-app.use(bodyParser.json());
+app.use(express.json()); // Replacing bodyParser.json() with express.json()
 
 // Use CORS middleware
 app.use(cors({
-  origin: 'http://localhost:5173', // Allow requests from this origin
+  origin: 'https://192.168.1.42:5173', // Allow requests from this origin
 }));
 
-mongoose.connect('mongodb://localhost:27017/qr-id', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect('mongodb://localhost:27017/qr-id');
 
 const db = mongoose.connection;
 
@@ -38,12 +34,12 @@ app.post('/api/users', async (req, res) => {
 
 app.get('/api/users', async (req, res) => {
   try {
-    const data = await Student.find().select('_id');
+    const data = await Student.find();
     res.json(data);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
-})
+});
 
 const port = 8000; // Your backend server port
 app.listen(port, () => {
