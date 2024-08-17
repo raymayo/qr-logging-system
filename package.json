@@ -4,22 +4,27 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@yudiel/react-qr-scanner": "^2.0.8",
     "axios": "^1.7.4",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "express-jwt": "^8.4.1",
     "jsonwebtoken": "^9.0.2",
+    "mkcert": "^3.2.0",
     "mongoose": "^8.5.3",
-    "qrcode.react": "^3.1.0",
+    "nodemon": "^3.1.4",
+    "qr-scanner": "^1.4.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-qr-code": "^2.0.15",
+    "react-qr-scanner": "^1.0.0-alpha.11",
+    "react-router-dom": "^6.26.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

@@ -36,6 +36,15 @@ app.post('/api/users', async (req, res) => {
   }
 });
 
+app.get('/api/users', async (req, res) => {
+  try {
+    const data = await Student.find().select('_id');
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+})
+
 const port = 8000; // Your backend server port
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);

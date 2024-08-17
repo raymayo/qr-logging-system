@@ -1,20 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import GenerateQR from './components/GenerateQR.jsx'
+import './App.css';
 import RegisterStudent from './components/RegisterStudent.jsx';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ReadQR from './components/ReadQR.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
+	const [count, setCount] = useState(0);
 
-
-  return (
-    <>
-    <GenerateQR/>
-    <RegisterStudent/>
-    </>
-  )
+	return (
+		<>
+			<Router>
+				<Routes>
+					<Route path="/" element={<RegisterStudent />} />
+					<Route path="/scan" element={<ReadQR />} />
+				</Routes>
+			</Router>
+		</>
+	);
 }
 
-export default App
+export default App;
