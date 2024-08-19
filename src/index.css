@@ -71,13 +71,15 @@ button:focus-visible {
 }
 
 div{
-  border: solid 1px red;
+  /* border: solid 1px red; */
 }
 
 .qrContainer{
   width: 100%;
   padding: 2rem;
   background-color: white;
+  /* border: solid 1px red; */
+
 }
 
 #registerBox{

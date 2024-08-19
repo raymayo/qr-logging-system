@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useRef } from 'react';
+import html2canvas from 'html2canvas';
 import QRCode from 'react-qr-code';
 import axios from 'axios';
 
@@ -12,6 +14,18 @@ const RegisterStudent = () => {
 		studentCourse: '',
 	});
 
+	const divRef = useRef();
+
+	const handleDownload = () => {
+		html2canvas(divRef.current).then((canvas) => {
+		  const link = document.createElement('a');
+		  link.download = `${formData.studentName} QR Code.png`;
+		  link.href = canvas.toDataURL('image/png');
+		  link.click();
+		});
+	  };
+
+
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setFormData({ ...formData, [name]: value });
@@ -20,7 +34,7 @@ const RegisterStudent = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		axios
-			.post('http://localhost:8000/api/users', formData) // Adjust port if necessary
+			.post('http://localhost:8000/api/users/', formData) // Adjust port if necessary
 			.then((response) => {
 				console.log('User created:', response.data);
 				// Optionally, clear the form or show a success message
@@ -36,7 +50,6 @@ const RegisterStudent = () => {
 				// Optionally, show an error message to the user
 			});
 	};
-	console.log(formData.studentNo);
 
 	return (
 		<div id='registerBox'>
@@ -85,28 +98,9 @@ const RegisterStudent = () => {
 					/>
 				</label>
 				<br />
-				<button type="submit" 
-				        onClick={() => {
-							const svg = document.getElementById("QRCode");
-							const svgData = new XMLSerializer().serializeToString(svg);
-							const canvas = document.createElement("canvas");
-							const ctx = canvas.getContext("2d");
-							const img = new Image();
-							img.onload = () => {
-							  canvas.width = img.width;
-							  canvas.height = img.height;
-							  ctx.drawImage(img, 0, 0);
-							  const pngFile = canvas.toDataURL("image/png");
-							  const downloadLink = document.createElement("a");
-							  downloadLink.download = `${formData.studentName} "QRCode"`;
-							  downloadLink.href = `${pngFile}`;
-							  downloadLink.click();
-							};
-							img.src = `data:image/svg+xml;base64,${btoa(svgData)}`;
-						  }}
-				>Submit</button>
+				<button type="submit" onClick={handleDownload}>Submit</button>
 			</form>
-			<div className='qrContainer'
+			<div className='qrContainer' ref={divRef}
 				>
 				<QRCode
 					size={256}

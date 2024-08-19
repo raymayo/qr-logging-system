@@ -32,9 +32,10 @@ app.post('/api/users', async (req, res) => {
   }
 });
 
-app.get('/api/users', async (req, res) => {
+app.get('/api/users/:studentNo', async (req, res) => {
+  const { studentNo } = req.params;
   try {
-    const data = await Student.find();
+    const data = await Student.find({studentNo});
     res.json(data);
   } catch (err) {
     res.status(500).json({ message: err.message });
