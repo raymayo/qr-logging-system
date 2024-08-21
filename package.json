@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@shadcn/ui": "^0.0.4",
     "@yudiel/react-qr-scanner": "^2.0.8",
     "axios": "^1.7.4",
     "body-parser": "^1.20.2",
@@ -19,24 +20,31 @@
     "html2canvas": "^1.4.1",
     "jsonwebtoken": "^9.0.2",
     "mkcert": "^3.2.0",
+    "moment": "^2.30.1",
     "mongoose": "^8.5.3",
     "nodemon": "^3.1.4",
     "qr-scanner": "^1.4.2",
+    "radix-ui": "^1.0.1",
     "react": "^18.3.1",
     "react-qr-code": "^2.0.15",
     "react-qr-scanner": "^1.0.0-alpha.11",
-    "react-router-dom": "^6.26.1"
+    "react-router-dom": "^6.26.1",
+    "recharts": "^2.12.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@types/node": "^22.4.2",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.20",
     "eslint": "^9.9.0",
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
     "globals": "^15.9.0",
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.10",
     "vite": "^5.4.1"
   }
 }

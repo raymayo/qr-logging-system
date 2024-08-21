@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const Student = require('./src/models/Student.cjs'); // Adjust the file extension if needed
+const Log = require('./src/models/Log.cjs'); // Adjust the file extension if needed
 
 const app = express();
 app.use(express.json()); // Replacing bodyParser.json() with express.json()
@@ -32,10 +33,41 @@ app.post('/api/users', async (req, res) => {
   }
 });
 
+app.post('/api/scan', async (req, res) => {
+  const { studentInfo, logAt } = req.body;
+
+  if (!studentInfo || !logAt) {
+    return res.status(400).json({ message: 'Missing required fields' });
+  }
+
+  try {
+    const newLog = new Log({
+      studentInfo,
+      logAt
+    })
+
+    await newLog.save();
+
+    res.status(201).json(newLog)
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+
+})
+
+app.get('/api/admin/', async (req, res) => {
+  try {
+    const data = await Log.find();
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
 app.get('/api/users/:studentNo', async (req, res) => {
   const { studentNo } = req.params;
   try {
-    const data = await Student.find({studentNo});
+    const data = await Student.find({ studentNo });
     res.json(data);
   } catch (err) {
     res.status(500).json({ message: err.message });
