@@ -25,9 +25,9 @@ const RecentLogs = () => {
 
 	if (loading) return <p>Loading...</p>;
 	return (
-		<div className="w-full border border-zinc-200 p-4 rounded-xl shadow bg-white">
+		<div className="w-full h-full border border-zinc-200 p-4 rounded-xl shadow bg-white">
 			<h1 className="text-xl font-semibold text-left pb-3">Recent Logs</h1>
-			<div className="flex flex-col gap-4 overflow-auto h-96 pr-4">
+			<div className="flex flex-col gap-4 overflow-auto h-full pr-4">
 				{logs.map((item) => (
 					<div
 						key={item._id}

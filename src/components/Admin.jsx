@@ -67,8 +67,8 @@ const Admin = () => {
 
 	if (loading) return <p>Loading...</p>;
 	return (
-		<div className="w-full h-full grid justify-center items-center border border-red-500 grid-cols-7 grid-rows-7 p-6 gap-6">
-			<div id='stats' className='w-full h-full flex flex-row gap-6 border border-blue-500 col-start-1 col-end-6 row-span-2'>
+		<div className="w-full h-full grid justify-center items-center grid-cols-7 grid-rows-7 p-6 gap-6">
+			<div id='stats' className='w-full h-full flex flex-row gap-6 col-start-1 col-end-6 row-span-2'>
 				<div className='w-full border border-zinc-200 p-6 rounded-xl shadow max-w-full'>number of all students</div>
 				<div className='w-full border border-zinc-200 p-6 rounded-xl shadow max-w-full'>bar data</div>
 				<div className='w-full border border-zinc-200 p-6 rounded-xl shadow max-w-full'>chart data</div>
@@ -127,7 +127,7 @@ const Admin = () => {
 						))}
 					</tbody>
 				</table>
-				<div className="flex justify-between items-center">
+				<div className="border border-red-500 flex justify-between items-center">
 					<button
 						onClick={() => handlePageChange(currentPage - 1)}
 						disabled={currentPage === 1}>
@@ -144,7 +144,9 @@ const Admin = () => {
 				</div>
 
 			</div>
+			<div className='w-full h-full col-start-6 col-end-8 row-start-1 row-end-8'>
 				<RecentLogs />
+				</div>
 		</div>
 	);
 };
