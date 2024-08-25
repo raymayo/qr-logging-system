@@ -67,11 +67,11 @@ const Admin = () => {
 
 	if (loading) return <p>Loading...</p>;
 	return (
-		<div className="w-full h-full grid justify-center items-center border border-red-500 grid-cols-7 grid-rows-7">
-			<div id='stats' className='flex flex-row'>
-				<div className='border border-zinc-200 p-6 rounded-xl shadow max-w-full'>number of all students</div>
-				<div className='border border-zinc-200 p-6 rounded-xl shadow max-w-full'>bar data</div>
-				<div className='border border-zinc-200 p-6 rounded-xl shadow max-w-full'>chart data</div>
+		<div className="w-full h-full grid justify-center items-center border border-red-500 grid-cols-7 grid-rows-7 p-6 gap-6">
+			<div id='stats' className='w-full h-full flex flex-row gap-6 border border-blue-500 col-start-1 col-end-6 row-span-2'>
+				<div className='w-full border border-zinc-200 p-6 rounded-xl shadow max-w-full'>number of all students</div>
+				<div className='w-full border border-zinc-200 p-6 rounded-xl shadow max-w-full'>bar data</div>
+				<div className='w-full border border-zinc-200 p-6 rounded-xl shadow max-w-full'>chart data</div>
 			</div>
 			<div className="w-full h-full border border-zinc-200 p-6 rounded-xl shadow max-w-full overflow-x-auto col-start-1 col-end-6 row-start-3 row-end-8 ">
 				<h1 className="text-xl font-semibold py-2">Student Logs</h1>
@@ -144,7 +144,7 @@ const Admin = () => {
 				</div>
 
 			</div>
-				{/* <RecentLogs /> */}
+				<RecentLogs />
 		</div>
 	);
 };
