@@ -31,7 +31,7 @@ const RecentLogs = () => {
 				{logs.map((item) => (
 					<div
 						key={item._id}
-						className="border border-zinc-200 rounded-md shadow p-3">
+						className="border border-zinc-200 rounded-md shadow p-3 hover:bg-zinc-200 transition-all">
 						<div className="pb-1">
 							<div className='flex flex-col float-end mt-3'>
 								<p className="">{new Date(item.logAt).toLocaleDateString()}</p>

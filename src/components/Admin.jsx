@@ -8,7 +8,7 @@ const Admin = () => {
 	const [loading, setLoading] = useState(true);
 
 	const [currentPage, setCurrentPage] = useState(1);
-	const [logsPerPage] = useState(10); // Number of logs per page
+	const [logsPerPage] = useState(8); // Number of logs per page
 	const [sortConfig, setSortConfig] = useState({ key: '', direction: '' });
 
 	const sortedLogs = [...logs].sort((a, b) => {
@@ -116,7 +116,7 @@ const Admin = () => {
 						{currentLogs.map((item) => (
 							<tr
 								key={item._id}
-								className="border-t border-zinc-200 hover:bg-zinc-50">
+								className="border-t border-zinc-200 hover:bg-zinc-50 transition-all">
 								<td className="text-left py-3 pr-20 font-semibold">
 									{item.studentInfo.No}
 								</td>
@@ -127,7 +127,17 @@ const Admin = () => {
 									{item.studentInfo.Year}
 								</td>
 								<td className="text-left py-3 pr-20">
-									{item.studentInfo.Course}
+									<p className={`'border border-red-500 w-fit px-2 rounded text-black ' ${
+										item.studentInfo.Course === 'BSCS'
+										? "bg-purple-500"
+										: item.studentInfo.Course === 'BSBA HRM' || item.studentInfo.Course === 'BSBA FM' || item.studentInfo.Course === 'BSA'
+										? "bg-amber-300"
+										: item.studentInfo.Course === 'BSED MATH & FIL' || item.studentInfo.Course === 'BSED SOCSTUD' || item.studentInfo.Course === 'BEED' || item.studentInfo.Course === 'CPE'
+										?"bg-blue-500"
+										: item.studentInfo.Course === 'BSHM'
+										? "bg-red-500"
+										:""
+									}`}>{item.studentInfo.Course}</p>
 								</td>
 								<td className="text-left py-3">
 									{new Date(item.logAt).toLocaleString()}
