@@ -38,41 +38,24 @@ body {
 }
 
 
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
-
-
-.qrContainer{
-  /* width: 100%; */
-  /* padding: 2rem;
-  background-color: white; */
-  /* border: solid 1px red; */
-}
 
 #registerBox{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  /* border: solid 1px red; */
 }
 
-/* input{
-  color: black;
-  background-color: white;
-  border: none;
-  outline: none;
-  border: solid 1px black;
-} */
 
 form{
   text-align: left;
+}
+
+#scannerBox{
+  *{
+    width:100%;
+    height:100%
+  }
+
+  svg {
+
+  }
 }

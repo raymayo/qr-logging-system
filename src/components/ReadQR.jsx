@@ -55,11 +55,13 @@ const ReadQR = () => {
 	console.log(Date().toLocaleString())
 
 	return (
-		<div className="w-2/3 mx-auto grid grid-cols-2 gap-6 border border-red-500">
-			<div className="p-6 border border-zinc-200 shadow rounded-xl">
+			<div className='w-full h-full flex flex-col justify-center items-center'>
+		<div className="w-2/4 h-96 mx-auto grid grid-cols-2 gap-6">
+			<div className="">
 				<Scanner onScan={handleScan} />
 			</div>
-			<div className="p-4 border border-zinc-200 shadow rounded-xl flex flex-col gap-6">
+			<div className="p-4 border border-zinc-200 shadow rounded-xl flex flex-col gap-3">
+				<h1>Student Information</h1>
 				<div>
 					<label className="block mb-1.5 text-sm font-medium">ID Number</label>
 					<input
@@ -113,6 +115,7 @@ const ReadQR = () => {
           <li key={id}>{id}</li>
         ))}
       </ul> */}
+		</div>
 		</div>
 	);
 };

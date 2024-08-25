@@ -52,9 +52,10 @@ const RegisterStudent = () => {
 	};
 
 	return (
+		<div className='w-full h-full flex flex-col justify-center items-center'>
 		<div
 			id="registerBox"
-			className="container border border-zinc-200 p-6 rounded-2xl shadow grid grid-cols-2 gap-6">
+			className="container w-2/5 border border-zinc-200 p-6 rounded-2xl shadow grid grid-cols-2 gap-6">
 			<div className='col-span-2 text-left'>
 				<h1 className="text-xl font-semibold">Register student</h1>
 				<p className='text-zinc-500'>Input the student's information and click submit button to get unique QR Code.</p>
@@ -62,11 +63,11 @@ const RegisterStudent = () => {
 			<form onSubmit={handleSubmit} className="">
 				<div className="w-full flex flex-col gap-4 ">
 					<div className="">
-						<label className="block mb-1 text-base font-medium">ID</label>
+						<label className="block mb-1 text-sm font-medium">ID</label>
 						<input
 							className="w-full bg-white border border-zinc-200 p-2 pl-3 text-base rounded-md shadow-sm placeholder-zinc-500 focus:border focus:border-black"
 							name="studentNo"
-							placeholder="ID Number"
+							placeholder="Student Number"
 							value={formData.studentNo}
 							onChange={handleChange}
 							required
@@ -78,7 +79,7 @@ const RegisterStudent = () => {
 							className="w-full bg-white border border-zinc-200 p-2 pl-3 text-base rounded-md shadow-sm placeholder-zinc-500 focus:border-black"
 							type="text"
 							name="studentName"
-							placeholder="Name"
+							placeholder="Student Name"
 							value={formData.studentName}
 							onChange={handleChange}
 							required
@@ -95,7 +96,7 @@ const RegisterStudent = () => {
 							onChange={handleChange}
 							required>
 							<option value="" disabled>
-								Select Course
+								Select Year Level
 							</option>
 							<option value="1st Year">1st Year</option>
 							<option value="2nd Year">2nd Year</option>
@@ -141,8 +142,9 @@ const RegisterStudent = () => {
 				className="col-span-2 bg-zinc-900 text-white inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow h-9 px-4 py-2"
 				type="submit"
 				onClick={handleDownload}>
-				Submit
+				Generate QR Code
 			</button>
+		</div>
 		</div>
 	);
 };
