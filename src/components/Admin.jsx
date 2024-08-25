@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import RecentLogs from './RecentLogs.jsx';
+import { ChevronRight, ChevronLeft } from 'lucide-react';
+
 
 const Admin = () => {
 	const [logs, setLogs] = useState([]);
@@ -67,13 +69,20 @@ const Admin = () => {
 
 	if (loading) return <p>Loading...</p>;
 	return (
-		<div className="w-full h-full grid justify-center items-center grid-cols-7 grid-rows-7 p-6 gap-6">
+<div className='w-full h-full flex flex-col p-6 gap-4'>
+	<div className=''>
+		<h1 className='text-3xl font-bold'>Dashboard</h1>
+		<p className='text-zinc-500'>Student information table and statistics.</p>
+	</div>
+		<div className="w-full h-full grid justify-center items-center grid-cols-7 grid-rows-7  gap-4">
+			
 			<div id='stats' className='w-full h-full flex flex-row gap-6 col-start-1 col-end-6 row-span-2'>
 				<div className='w-full border border-zinc-200 p-6 rounded-xl shadow max-w-full'>number of all students</div>
 				<div className='w-full border border-zinc-200 p-6 rounded-xl shadow max-w-full'>bar data</div>
 				<div className='w-full border border-zinc-200 p-6 rounded-xl shadow max-w-full'>chart data</div>
 			</div>
-			<div className="w-full h-full border border-zinc-200 p-6 rounded-xl shadow max-w-full overflow-x-auto col-start-1 col-end-6 row-start-3 row-end-8 ">
+			<div className="w-full h-full flex flex-col justify-between border border-zinc-200 p-6 rounded-xl shadow max-w-full overflow-x-auto col-start-1 col-end-6 row-start-3 row-end-8 ">
+				<div>
 				<h1 className="text-xl font-semibold py-2">Student Logs</h1>
 				<table className="border-collapse table-auto min-w-full">
 					<thead>
@@ -127,19 +136,24 @@ const Admin = () => {
 						))}
 					</tbody>
 				</table>
-				<div className="border border-red-500 flex justify-between items-center">
+				</div>
+				<div className=" flex justify-between items-center self-end w-fit gap-4">
 					<button
 						onClick={() => handlePageChange(currentPage - 1)}
-						disabled={currentPage === 1}>
-						Previous
+						disabled={currentPage === 1}
+						className='border border-zinc-200 shadow-sm px-2 py-1 rounded-md cursor-pointer hover:bg-zinc-100'
+						>
+						<ChevronLeft/>
 					</button>
 					<span>
 						Page {currentPage} of {totalPages}
 					</span>
 					<button
 						onClick={() => handlePageChange(currentPage + 1)}
-						disabled={currentPage === totalPages}>
-						Next
+						disabled={currentPage === totalPages}
+						className='border border-zinc-200 shadow-sm px-2 py-1 rounded-md cursor-pointer hover:bg-zinc-100'
+						>
+						<ChevronRight/>
 					</button>
 				</div>
 
@@ -147,6 +161,7 @@ const Admin = () => {
 			<div className='w-full h-full col-start-6 col-end-8 row-start-1 row-end-8'>
 				<RecentLogs />
 				</div>
+		</div>
 		</div>
 	);
 };

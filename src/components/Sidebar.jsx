@@ -47,7 +47,7 @@ const SidebarItem = ({ icon, text, active, alert, onClick }) => {
         ${
           active
             ? ' bg-zinc-100 text-zinc-950'
-            : 'hover:bg-zinc-50 text-gray-600'
+            : 'hover:bg-zinc-100 text-zinc-950'
         }
       `}>
       {icon}
@@ -69,7 +69,7 @@ const SidebarItem = ({ icon, text, active, alert, onClick }) => {
         <div
           className={`
             absolute left-full rounded-md px-2 py-1 ml-6
-            bg-zinc-100 text-zinc-800 text-sm
+            bg-zinc-100 text-zinc-950 shadow text-sm
             invisible opacity-20 -translate-x-3 transition-all
             group-hover:visible group-hover:opacity-100 group-hover:translate-x-0
         `}>
