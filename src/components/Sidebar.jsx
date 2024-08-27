@@ -1,6 +1,6 @@
 import { MoreVertical, ChevronLast, ChevronFirst } from 'lucide-react';
 import { useContext, createContext, useState } from 'react';
-import { UserPlus, QrCode } from 'lucide-react';
+import { UserPlus, Box } from 'lucide-react';
 
 const SidebarContext = createContext();
 
@@ -12,11 +12,12 @@ const Sidebar = ({ children }) => {
 			<nav className="h-full flex flex-col bg-white border-r border-zinc-200">
 				<div className="w-full p-4 pb-2 flex justify-between items-center">
 					<div
-						className={`overflow-hidden flex gap-1 text-xl transition-all ${
-              expanded ? "w-44" : "w-0"
+						className={`overflow-hidden flex items-center gap-1 text-xl transition-all ${
+              expanded ? "w-52" : "w-0"
             }`}>
-						{/* <QrCode /> */}
-            <h1 className='font-bold'>QRID System</h1>
+						<Box size={35}/>
+            {/* <img src="https://img.logoipsum.com/282.svg" alt="" className='w-8'/> */}
+            <h1 className='font-bold text-lg'>QRID System</h1>
 					</div>
 
 					<button
