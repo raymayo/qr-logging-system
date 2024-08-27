@@ -37,6 +37,16 @@ body {
   min-height: 100vh;
 }
 
+#adminPanel{
+  display:grid;
+  grid-template-columns: repeat(2,auto);
+}
+
+#stats{
+  display:grid;
+  grid-template-columns:repeat(4,auto)
+}
+
 
 
 #registerBox{

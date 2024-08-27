@@ -4,14 +4,14 @@ import RegisterStudent from './components/RegisterStudent.jsx';
 import ReadQR from './components/ReadQR.jsx';
 import Admin from './components/Admin.jsx';
 import { Sidebar, SidebarItem } from './components/Sidebar';
-import { UserPlus, ScanQrCode, Monitor } from 'lucide-react';
+import { UserPlus, ScanQrCode, Monitor, ChartPie } from 'lucide-react';
 
 function App() {
-	const [activeComponent, setActiveComponent] = useState('RegisterStudent');
+	const [activeComponent, setActiveComponent] = useState('Register');
 
 	const renderComponent = () => {
 		switch (activeComponent) {
-			case 'RegisterStudent':
+			case 'Register':
 				return <RegisterStudent />;
 			case 'ReadQR':
 				return <ReadQR />;
@@ -27,13 +27,13 @@ function App() {
 			<Sidebar>
 				<SidebarItem
 					icon={<UserPlus />}
-					text="Register Student"
-					active={activeComponent === 'RegisterStudent'}
-					onClick={() => setActiveComponent('RegisterStudent')}
+					text="Register"
+					active={activeComponent === 'Register'}
+					onClick={() => setActiveComponent('Register')}
 				/>
 				<SidebarItem
 					icon={<ScanQrCode />}
-					text="Scan QR"
+					text="Scan"
 					active={activeComponent === 'ReadQR'}
 					onClick={() => setActiveComponent('ReadQR')}
 				/>
@@ -41,6 +41,12 @@ function App() {
 					icon={<Monitor />}
 					text="Administrator"
 					active={activeComponent === 'Admin'}
+					onClick={() => setActiveComponent('Admin')}
+				/>
+				<SidebarItem
+					icon={<ChartPie />}
+					text="Statistics"
+					active={activeComponent === 'Stats'}
 					onClick={() => setActiveComponent('Admin')}
 				/>
 			</Sidebar>
