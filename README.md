@@ -39,4 +39,3 @@ Make sure you have the following installed:
 - **Report Generation**: Allow admins to download student log reports as CSV.
 - **Mobile App**: Expand the system to support a mobile app for easier scanning.
 
----
