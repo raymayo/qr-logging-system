@@ -1,6 +1,6 @@
-# QR Identification System
+# QR Logging System
 
-The **QR Identification System** is a web application that allows students to log their entry and exit from a facility using QR codes. The system is designed to streamline the logging process and keep track of student activity in real-time.
+The **QR Logging System** is a web application that allows students to log their entry and exit from a facility using QR codes. The system is designed to streamline the logging process and keep track of student activity in real-time.
 
 ## Features
 
